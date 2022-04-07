@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<entity-mappings version="2.0" xmlns="http://java.sun.com/xml/ns/persistence/orm"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+	http://java.sun.com/xml/ns/persistence/orm_2_0.xsd ">
+	
+	<!-- find all books order by price descending -->
+	<named-query name="Book.findAllXML">
+	       <query>Select b from Book b Order By b.rating Desc</query>
+	</named-query>
+	
+	<!-- find books by minimum rating-->
+	<named-query name="Book.findByMinRatingXML">
+	       <query>Select b from Book b where b.rating >= ?1 Order By b.rating</query>
+	</named-query>
+	
+	<!-- native SQL query to find a book by author -->
+	<named-native-query name="Book.findByAuthorNativeXML"
+	                     result-class="com.example.jpa.demo.entity.Book">
+	       <query>Select * from book b where b.author = :author</query>
+	</named-native-query>
+	
+	</entity-mappings>
+	
+       
+        
+
+
